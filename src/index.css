@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk Gaming Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    --background: 240 15% 8%;
+    --foreground: 200 50% 85%;
+
+    --card: 240 20% 12%;
+    --card-foreground: 200 50% 88%;
+
+    --popover: 240 20% 12%;
+    --popover-foreground: 200 50% 88%;
+
+    --primary: 200 80% 60%;
+    --primary-foreground: 240 15% 8%;
+
+    --secondary: 240 15% 18%;
+    --secondary-foreground: 200 50% 75%;
+
+    --muted: 240 15% 15%;
+    --muted-foreground: 200 30% 55%;
+
+    --accent: 280 60% 65%;
+    --accent-foreground: 240 15% 8%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 240 15% 8%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 200 80% 60%;
+
+    --radius: 0.75rem;
+
+    /* Chill Aesthetic Variables */
+    --soft-blue: 200 80% 60%;
+    --soft-purple: 280 60% 65%;
+    --soft-pink: 320 50% 70%;
+    --dark-bg: 240 15% 8%;
+    --card-bg: 240 20% 12%;
+    --glass-bg: 240 20% 15%;
+    
+    /* Soft Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 80% 60% / 0.6), hsl(280 60% 65% / 0.6));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 20% 12% / 0.9), hsl(240 15% 8% / 0.9));
+    --gradient-chill: linear-gradient(45deg, hsl(200 80% 60% / 0.1), hsl(280 60% 65% / 0.1), hsl(320 50% 70% / 0.1));
+    
+    /* Soft Shadows */
+    --shadow-soft: 0 0 25px hsl(200 80% 60% / 0.2), 0 0 50px hsl(200 80% 60% / 0.1);
+    --shadow-card: 0 8px 32px hsl(240 15% 8% / 0.4);
+    --shadow-glow: 0 0 40px hsl(200 80% 60% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .soft-glow {
+    box-shadow: var(--shadow-soft);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+  
+  .soft-glow:hover {
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary) / 0.4);
+  }
+  
+  .glass-effect {
+    background: linear-gradient(135deg, hsl(var(--glass-bg) / 0.7), hsl(var(--card-bg) / 0.5));
+    backdrop-filter: blur(15px);
+    border: 1px solid hsl(var(--primary) / 0.15);
+  }
+  
+  .soft-text {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.3), 0 0 30px hsl(var(--primary) / 0.1);
+  }
+  
+  .chill-button {
+    background: linear-gradient(45deg, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 25px hsl(var(--primary) / 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .chill-button:hover {
+    box-shadow: 0 0 35px hsl(var(--primary) / 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .discord-card {
+    background: linear-gradient(135deg, hsl(var(--card-bg) / 0.95), hsl(var(--glass-bg) / 0.9));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    box-shadow: 0 8px 32px hsl(var(--dark-bg) / 0.6);
+  }
+}
